@@ -23,7 +23,7 @@ public class RegistroDeVendas {
             System.out.println("Valor agora é " + fisico.getValor());
         }
 
-        CarrinhoDeCompras carrinho = new CarrinhoDeCompras();
+        CarrinhoDeCompras carrinho = new CarrinhoDeCompras(new Produto[10]);
         
         carrinho.adiciona(fisico);
         carrinho.adiciona(ebook);
