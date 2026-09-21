@@ -1,34 +1,30 @@
 package br.com.gustamba.livraria.teste;
+import java.util.*;
 
 import br.com.gustamba.livraria.produtos.Produto;
 
 public class CarrinhoDeCompras {
     
     private double total;
-    private Produto[] produtos;
-    private int contador = 0;
+    private List<Produto> produtos;
     
     public CarrinhoDeCompras(Produto[] produtos) {
-        this.produtos = produtos;
+        this.produtos = new ArrayList<Produto>();
     }
 
-    public void adiciona(Object object) {
-        System.out.println("Adicionando: " + object);
-        this.produtos[contador] = (Produto) object;
-        contador ++;
-        Produto moldado = (Produto) object;
-        this.total += moldado.getValor();
+    public void adiciona(Produto produto) {
+        this.produtos.add(produto);
     }
 
     public void remove(int posicao) {
-        this.produtos[posicao] = null;
+        this.produtos.remove(posicao);
     }
 
     public double getTotal() {
         return total;
     } 
 
-    public Produto[] getProdutos() {
+    public List<Produto> getProdutos() {
         return produtos;
     }
 }

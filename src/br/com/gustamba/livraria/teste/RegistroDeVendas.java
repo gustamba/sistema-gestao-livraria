@@ -1,5 +1,7 @@
 package br.com.gustamba.livraria.teste;
 
+import java.util.*;
+
 import br.com.gustamba.livraria.Autor;
 import br.com.gustamba.livraria.produtos.Ebook;
 import br.com.gustamba.livraria.produtos.LivroFisico;
@@ -29,35 +31,13 @@ public class RegistroDeVendas {
         carrinho.adiciona(ebook);
 
         System.out.println("Total " + carrinho.getTotal());
-        
-        /*
-        Produto[] produtos = carrinho.getProdutos();
-        */
-        
-        Object[] produtos = carrinho.getProdutos();
+              
+        List<Produto> produtos = carrinho.getProdutos();
 
-        for (Object object : produtos) {
-            try {
-                Produto moldado = (Produto) object;
-                System.out.println(moldado.getValor());
-            } catch (Exception e) {
-                System.out.println("O objeto passado não implementa Produto");
-            }
+        for (Produto produto : produtos) {
+            System.out.println(produto);
         }
 
-        /*
-        for (int i = 0; i <= produtos.length; i++) {
-        	try {
-                Produto produto = produtos[i];
-                if (produto != null) {
-                    System.out.println(produto.getValor());
-                }
-            } catch (Exception e) {
-                System.out.println("deu exception no indice " + i);
-                //e.printStackTrace();
-            }
-        }
-        */
         System.out.println("Fui executado!");
         System.out.println(ebook.toString());
     }
